@@ -8,29 +8,25 @@ int main(){
 	int n, in;
 	cin >> n;
 	vector<int> color;
-	set<int> diff;
 	for(int i = 0 ; i < n ; i++){
 		cin >> in;
 		color.push_back(in);
-		diff.insert(in);
 	}
-	int max = 0;
-	map<int, int> last;
-	for(int i = 0 ; i < n ; i++){
-		if(last[color[i]] == 0){
-			for(int j = n-1 ; j > i+max ; j--){
-				if(color[i] != color[j]){
-					max = j-i;
-					last[color[i]] = max;
-					diff.erase(color[i]);
-					break;
-				}
-			}
+	int front = 0, back = 0;
+	for(int i = n-1 ; i >= 1 ; i--){
+		if(color[0] != color[i]){
+			front = i;
+			break;
 		}
-		
-		if(i+max >= n || diff.empty()) break;
 	}
-	cout << max << '\n';
+	for(int i = 0 ; i < n-1 ; i++){
+		if(color[n-1] != color[i]){
+			back = n-1-i;
+			break;
+		}
+	}
+	
+	cout << ((front>back)? front:back) << '\n';
 	
 	return 0;
 }
