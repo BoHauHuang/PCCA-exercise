@@ -14,4 +14,4 @@ int main(){
 	cout << ((a==b)? "Deletion succeeded" : "Deletion failed") << endl;
 	
 	return 0;
-} 
+}
