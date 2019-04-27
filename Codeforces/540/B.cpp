@@ -13,46 +13,18 @@ int main(){
 	}
 	if(n == 1) cout << "1" << endl;
 	else{
-		long long int count = 0;
-		vector<int> candy(n+1);
-		candy[0] = 0;
-		candy[1] = input[0];
-		candy[2] = input[1];
-		for(int i = 3 ; i <= n ; i++){
-			candy[i] = candy[i-2] + input[i-1];
+		long long int count = 0, sum_odd = 0, sum_even = 0;
+		for(int i = 1 ; i < n ; i++){
+			if(i%2 == 0) sum_even += input[i];
+			else sum_odd += input[i];
 		}
-		long long int odd = 0, even = 0;
-		for(int i = 1 ; i <= n ; i++){
-			odd = 0;
-			even = 0;
-			if(i%2){ // pick odd
-				if(n%2){ // vector length is odd
-					long long int change_to_even = candy[n] - candy[i], change_to_odd = candy[n-1] - ((i > 1)? candy[i-1] : 0);
-					odd = change_to_odd + ((i > 2)? candy[i-2] : 0);
-					even = change_to_even + ((i > 1)? candy[i-1] : 0);
-					count += (odd == even);
-				}
-				else{ // vecotr length is even
-					long long int change_to_even = candy[n-1] - candy[i], change_to_odd = candy[n] - ((i > 1)? candy[i-1] : 0);
-					odd = change_to_odd + ((i > 2)? candy[i-2] : 0);
-					even = change_to_even + ((i > 1)? candy[i-1] : 0);
-					count += (odd == even);
-				}
-			}
-			else{ // pick even
-				if(n%2){ // vector length is odd
-					long long int change_to_even = candy[n] - candy[i-1], change_to_odd = candy[n-1] - candy[i];
-					odd = change_to_odd + candy[i-1];
-					even = change_to_even + ((i > 2)? candy[i-2] : 0);
-					count += (odd == even);
-				}
-				else{ // vector length is even
-					long long int change_to_even = candy[n-1] - ((i > 1)? candy[i-1] : 0), change_to_odd = candy[n] - candy[i];
-					odd = change_to_odd + ((i > 1)? candy[i-1] : 0);
-					even = change_to_even + ((i > 2)? candy[i-2] : 0);
-					count += (odd == even);
-				}
-			}
+		if(sum_even == sum_odd) count++;
+		
+		for(int i = 1 ; i < n ; i++){
+			if(i%2 == 0) sum_even += (input[i-1]-input[i]);
+			else sum_odd += (input[i-1]-input[i]);
+			
+			if(sum_odd == sum_even) count++;
 		}
 		
 		cout << count << endl;

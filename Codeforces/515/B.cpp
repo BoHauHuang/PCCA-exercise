@@ -42,7 +42,7 @@ int main(){
 			cnt++;
 			for(int i = low_bound ; i <= up_bound ; i++){
 				total[i]--;
-			}	
+			}
 		}
 	}
 	if(heater_idx.empty()) cout << "-1" << endl;
