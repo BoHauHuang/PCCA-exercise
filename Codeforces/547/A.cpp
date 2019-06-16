@@ -1,34 +1,29 @@
 #include<bits/stdc++.h>
+#define INVALID (n < m && n*2 > m) || origin != result || origin*n != m
 using namespace std;
 
 int main(){
-	int n, m;
-	
+	long long int n, m;
 	cin >> n >> m;
-	int cnt = 0;
+	long long int mul = m/n;
+	long long int result = 1, origin = mul, ans = 0;
 	
-	if(n == m) cout << "0" << endl;
-	else if(n*2 > m && n != m) cout << "-1" << endl;
-	else{
-		int mul = m/n;
-		while(mul > 1){
-			if(mul%3 == 0){
-				mul/=3;
-				n*=3;
-				cnt++;
-			}
-			else if(mul%2 == 0){
-				mul/=2;
-				n*=2;
-				cnt++;
-			}
-			if(n >= m) break;
-			if(mul%2 && mul%3) break;
+	while(mul > 1){
+		if(mul >= 3 && !(mul%3)){
+			mul/=3;
+			result*=3;
+			ans++;
 		}
-		
-		if(n==m) cout << cnt << endl;
-		else cout << "-1" << endl;
+		if(mul >= 2 && !(mul%2)){
+			mul/=2;
+			result*=2;
+			ans++;
+		}
+		if(mul%2 && mul%3) break;
 	}
+	
+	if(INVALID) cout << "-1" << endl;
+	else cout << ans << endl;
 	
 	return 0;
 }

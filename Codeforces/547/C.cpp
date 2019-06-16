@@ -4,41 +4,31 @@ using namespace std;
 int main(){
 	int n;
 	cin >> n;
-	vector<int> q;
-	map<int, int> check;
-	
-	q.push_back(0);
-	int in;
-	for(int i = 0 ; i < n-1 ; i++){
-		cin >> in;
-		q.push_back(in);	
+	map<int, int> find;
+	int q, p[n];
+	p[0] = 0;
+	for(int i = 1 ; i < n ; i++){
+		cin >> q;
+		p[i] = p[i-1]+q;
 	}
-	for(int i = 1 ; i < q.size() ; i++)
-		q[i] += q[i-1];
 	
-	int min = q[0];
-	for(int i = 1 ; i < q.size() ; i++)
-		min = (q[i] < min)? q[i] : min;
+	int min = 200005;
+	for(int i = 0 ; i < n ; i++)
+		if(p[i] < min) min = p[i];
 	
-	int bias = (min <= 0)? -min+1 : 0;
-	for(int i = 0 ; i < q.size() ; i++)
-		check[q[i]+bias] = 1;
+	for(int i = 0 ; i < n ; i++)
+		find[p[i]+(1-min)] = 1;
 		
-	bool has_ans = true;
-	for(int i = 1 ; i <= n; i++){
-		if(!check[i]){
-			has_ans = false;
-			break;
-		}
-	}
-	
-	if(!has_ans) cout << "-1" << endl;
-	else{
-		for(int i = 0 ; i < q.size() ; i++)
-			cout << q[i]+bias << " "; 
+	bool ok = true;
+	for(int i = 1 ; i <= n ; i++)
+		if(!find[i]) ok = false;
+		
+	if(ok){
+		for(int i = 0 ; i < n ; i++)
+			cout << p[i]+(1-min) << " ";
 		cout << endl;
 	}
-	
+	else cout << "-1" << endl;
 	
 	return 0;
 }
