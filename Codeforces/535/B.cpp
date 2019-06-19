@@ -1,30 +1,26 @@
-
- #include<bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main(){
 	int n;
 	cin >> n;
-	int num[n];
-	for(int i = 0 ; i < n ; i++)
-		cin >> num[i];
-	sort(num, num+sizeof(num)/sizeof(int));
+	int d[n];
 	
-	int x, y;
-	x = num[n-1];
+	for(int i = 0 ; i < n ; i++)
+		cin >> d[i];
+	
+	sort(d, d+n);
+	int x = d[n-1];
 	map<int, int> cnt;
-	int counter = 1;
 	for(int i = n-1 ; i >= 0 ; i--){
-		if(cnt[num[i]] == 0 && num[i] > 0 && !(x%num[i])){
-			cnt[num[i]] = 1;
-			num[i] = -1;
-			counter++;
+		if(cnt[d[i]] == 0 && d[i] > 0 && x%d[i] == 0){
+			cnt[d[i]] = 1;
+			d[i] = -1;
 		}
 	}
-	sort(num, num+sizeof(num)/sizeof(int));
-	y = num[n-1];
+	sort(d, d+n);
 	
-	cout << x << " " << y << endl;
-
+	cout << x << " " << d[n-1] << endl;
+	
 	return 0;
 }
