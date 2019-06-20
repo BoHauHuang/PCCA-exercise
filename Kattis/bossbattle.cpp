@@ -2,10 +2,9 @@
 using namespace std;
 
 int main(){
-	int n, ans = 1;
+	int n;
 	cin >> n;
-	n -= 3;
-	if(n <= 0) cout << ans << '\n';
-	else cout << ans+n << '\n';
+	cout << ((n-2 <= 0)? 1 : n-2) << endl;
+	
 	return 0;
 }

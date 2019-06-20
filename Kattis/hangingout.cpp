@@ -2,17 +2,18 @@
 using namespace std;
 
 int main(){
-	int L, x, in, sum = 0, cnt = 0;
-	string state;
-	
+	int L, x, p, ans = 0;
 	cin >> L >> x;
-	while(x--){
-		cin >> state >> in;
-		if(state == "enter" && sum + in > L) cnt++;
-		else if(state == "enter" && sum + in <= L) sum += in;
-		else if(state == "leave") sum = (sum-in > 0)? sum-in : 0;
-	}
-	cout << cnt << endl;
 	
+	while(x--){
+		string s;
+		cin >> s >> p;
+		if(s == "enter"){
+			if(L-p < 0) ans++;
+			else L -= p;
+		}
+		if(s == "leave") L += p;
+	}
+	cout << ans << endl;
 	return 0;
 }

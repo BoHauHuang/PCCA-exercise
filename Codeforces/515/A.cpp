@@ -2,18 +2,12 @@
 using namespace std;
 
 int main(){
-	int t;
+	long long int t, L, v, l, r;
 	cin >> t;
-	int L, v, l, r;
 	while(t--){
 		cin >> L >> v >> l >> r;
-		int total = L/v;
-		int start = ceil((double)l/v);
-		int end = r/v;
-		int sum = end - start + 1;
-		//cout << "start: " << start << endl << "end: " << end << endl << "sum: " << sum << endl;
-		cout << total-sum << endl;
+		long long int dis = (r/v)-(l/v);
+		cout << (L/v)-dis-(l%v == 0) << endl;
 	}
-	
 	return 0;
 }

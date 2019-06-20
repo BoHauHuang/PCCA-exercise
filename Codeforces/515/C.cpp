@@ -2,32 +2,25 @@
 using namespace std;
 
 int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	int q;
-	cin >> q;
-	int pos[200001], left = 0, right = 0, id;
-	memset(pos, 0, sizeof(pos));
 	char c;
+	int q, id;
+	cin >> q;
+	map<int, int> book;
+	
 	cin >> c >> id;
-	pos[id] = 0;
-	left--;
-	right++;
+	book[id] = 0;
 	q--;
+	int left = -1, right = 1;
+	
 	while(q--){
 		cin >> c >> id;
-		if(c == 'L'){
-			pos[id] = left;
-			left--;
-		}
-		else if(c == 'R'){
-			pos[id] = right;
-			right++;
-		}
+		if(c == 'L') book[id] = left--;
+		else if(c == 'R') book[id] = right++;
 		else{
-			cout << min(pos[id]-left-1, right-pos[id]-1) << endl;
+			int l = book[id]-left-1;
+			int r = right-book[id]-1;
+			cout << ((l>r)? r : l) << endl;
 		}
-	
 	}
 	
 	return 0;

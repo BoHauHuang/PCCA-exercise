@@ -4,49 +4,49 @@ using namespace std;
 int main(){
 	int n, r;
 	cin >> n >> r;
-	int heater[n];
-	vector<int> heater_idx;
-	for(int i = 0 ; i < n ; i++)
-		cin >> heater[i];
+	int a[n], h[n];
+	memset(h, 0, sizeof(h));
 	
-	int total[n];
-	memset(total, 0, sizeof(total));
+	for(int i = 0 ; i < n ; i++)
+		cin >> a[i];
+	
 	for(int i = 0 ; i < n ; i++){
-		if(heater[i]){
-			heater_idx.push_back(i);
-			int up_bound = (i+r-1 >= n)? n-1 : i+r-1;
-			int low_bound = (i-r+1 < 0)? 0 : i-r+1;
-			//cout << "idx: " << i << " low: "  << low_bound << " up: " << up_bound <<endl;
-			for(int j = low_bound ; j <= up_bound ; j++){
-				total[j]++;
-				//cout << "j: " << j <<endl;
-			}		
+		int low = (i-r+1 < 0)? 0 : i-r+1;
+		int up = (i+r-1 >= n)? n-1 : i+r-1;
+		for(int j = low ; j <= up ; j++){
+			h[i] += (a[j]);
 		}
 	}
+	
 	for(int i = 0 ; i < n ; i++){
-		if(!total[i]){
-			heater_idx.clear();
-			break;
+		if(!h[i]){
+			cout << "-1" << endl;
+			return 0;
 		}
 	}
-	int cnt = 0;
-	for(auto x : heater_idx){
-		int up_bound = (x+r-1 >= n)? n-1 : x+r-1;
-		int low_bound = (x-r+1 < 0)? 0 : x-r+1;
-		bool close = false;
-		for(int i = low_bound ; i <= up_bound ; i++){
-			if(total[i] == 1) break;
-			if(i == up_bound) close = true;
-		}
-		if(close){
-			cnt++;
-			for(int i = low_bound ; i <= up_bound ; i++){
-				total[i]--;
+	
+	int on = 0, off = 0;
+	for(int i = 0 ; i < n ; i++){
+		if(a[i]){
+			on++;
+			bool turnoff = true;
+			int low = (i-r+1 < 0)? 0 : i-r+1;
+			int up = (i+r-1 >= n)? n-1 : i+r-1;
+			for(int j = low ; j <= up ; j++){
+				if(h[j] == 1){
+					turnoff = false;
+					break;
+				}
+			}
+			if(turnoff){
+				off++;
+				for(int j = low ; j <= up ; j++)
+					h[j]--;
 			}
 		}
 	}
-	if(heater_idx.empty()) cout << "-1" << endl;
-	else cout << heater_idx.size()-cnt << endl;
+	
+	cout << on-off << endl;
 	
 	return 0;
 }

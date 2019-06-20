@@ -2,28 +2,25 @@
 using namespace std;
 
 int main(){
-	int n, k;
-	string in;
+	int n, k, ans = 0;
 	cin >> n >> k;
-	
-	vector<int> step;
+	string in;
+	vector<int> q;
 	for(int i = 0 ; i < k ; i++){
 		cin >> in;
 		if(in == "undo"){
-			int rev;
-			cin >> rev;
-			for(int i = 0 ; i < rev ; i++)
-				step.pop_back();
+			int m;
+			cin >> m;
+			while(m--) q.pop_back();
 		}
-		else step.push_back(stoi(in));
+		else q.push_back(stoi(in));
 	}
-	long long sum = 0;
-	for(auto x : step)
-		sum += x;
-		
-	if(sum < 0) sum += (ceil(-sum/n)+1)*n;
 	
-	cout << sum%n << endl;
+	for(int i = 0 ; i < q.size() ; i++)
+		ans=(ans+q[i])%n;
+	
+	if(ans < 0) ans += n;
+	cout << ans << endl;
 	
 	return 0;
-} 
+}

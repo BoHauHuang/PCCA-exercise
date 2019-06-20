@@ -2,23 +2,19 @@
 using namespace std;
 
 int main(){
-	int n, dm, cnt = -1;
+	int n, dm;
 	cin >> n >> dm;
-	int num[n];
-	memset(num, 0, sizeof(num));
+	int d[n];
 	for(int i = 0 ; i < n ; i++)
-		cin >> num[i];
-	bool valid = false;
+		cin >> d[i];
+	
 	for(int i = 0 ; i < n ; i++){
-		cnt = i;
-		if(num[i] <= dm){
-			valid = true;
-			break;
+		if(d[i] <= dm){
+			cout << "It hadn't snowed this early in " << i << " years!" << endl;
+			return 0;
 		}
 	}
-	
-	if(!valid) cout << "It had never snowed this early!" << endl;
-	else cout << "It hadn't snowed this early in " << cnt << " years!" << endl;
+	cout << "It had never snowed this early!" << endl;
 	
 	return 0;
 }
