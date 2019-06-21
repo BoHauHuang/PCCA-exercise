@@ -4,45 +4,40 @@ using namespace std;
 int main(){
 	int N, M;
 	cin >> N;
+	int tea[N];
 	if(!N){
-		cout << "0" << '\n';
+		cout << "0" << endl;
 		return 0;
-	}
-	int tea_price[N];
-	for(int i = 0 ; i < N ; i++){
-		cin >> tea_price[i];
-	}
+	} 
+	for(int i = 0 ; i < N ; i++)
+		cin >> tea[i];
 	cin >> M;
+	int topping[M];
 	if(!M){
-		cout << "0" << '\n';
+		cout << "0" << endl;
 		return 0;
-	}
-	int top_price[M];
-	for(int i = 0 ; i < M ; i++){
-		cin >> top_price[i];
-	}
-	bool s = false;
-	int min, k, type;
+	} 
+	for(int i = 0 ; i < M ; i++)
+		cin >> topping[i];
+	
+	bool nonzero = false;
+	long long int kind, min = 1000000000;
 	for(int i = 0 ; i < N ; i++){
-		cin >> k;
-		while(k--){
-			cin >> type;
-			int cost = top_price[type-1]+tea_price[i];
-			if(!s){
-				s = true;
-				min = cost;
-			}
+		cin >> kind;
+		while(kind--){
+			int in;
+			nonzero = true;
+			cin >> in;
+			int cost = tea[i]+topping[in-1];
 			if(min > cost) min = cost;
 		}
 	}
-	if(!s){
-		cout << "0" << '\n';
+	if(!nonzero){
+		cout << "0" << endl;
 		return 0;
 	}
-	int money;
+	long long int money;
 	cin >> money;
-	int ans = floor((double)money/min)-1;
-	if(ans > 0) cout << ans << '\n';
-	else cout << "0" << '\n';
+	cout << (((money/min)-1 < 0)? 0 : (money/min)-1) << endl;
 	return 0;
 }

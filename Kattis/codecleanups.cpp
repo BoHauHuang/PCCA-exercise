@@ -4,28 +4,27 @@ using namespace std;
 int main(){
 	int n;
 	cin >> n;
-	int d[n];
-	for(int i = 0 ; i < n ; i++){
+	int d[n], dirty = 0;
+	for(int i = 0 ; i < n ; i++)
 		cin >> d[i];
-	}
-	int cnt = 0, dirty = 0;
-	bool end = false;
+		
+	int ans = 0, end= 0;
 	for(int i = n-1 ; i >= 0 ; i--){
 		for(int j = i-1 ; j >= 0 ; j--){
 			if(dirty+d[i]-d[j] >= 20){
 				i = j+1;
-				cnt++;
 				dirty = 0;
+				ans++;
 				break;
 			}
-			dirty += d[i]-d[j];
-			if(j == 0) end = true;
+			dirty += (d[i]-d[j]);
+			if(!j) end = 1;
 		}
-		if((end) || (i == 0 && !end)){
-			cnt++;
-			break;
-		}
+		if(end || (!i && !end)) ans++;
+		if(end) break;
 	}
-	cout << cnt << '\n';
+	
+	cout << ans << endl;
+	
 	return 0;
 }

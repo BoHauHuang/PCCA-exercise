@@ -2,32 +2,31 @@
 using namespace std;
 
 int main(){
-	int T;
+	int T, n;
 	cin >> T;
-	
 	while(T--){
-		int n;
 		cin >> n;
-		int card[n], cnt = 1, pos = 0;;
-		memset(card, 0, sizeof(card));
+		deque<int> space;
+		int card[n], total = n;
+		for(int i = 0 ; i < n ; i++)
+			space.push_back(i);
 		
-		while(cnt <= n){
-			int num = 0;
-			while(num <= cnt+1){
-				if(card[pos] == 0) num++;
-				if(num == cnt+1){
-					card[pos] = cnt;
-					break;
-				}
-				pos = (pos+1)%n;
+		for(int i = 1 ; i <= total ; i++){
+			for(int j = 0 ; j < i ; j++){
+				int tmp = space.front();
+				space.pop_front();
+				space.push_back(tmp);
 			}
-			cnt++;
+			int pos = space.front();
+			space.pop_front();
+			card[pos] = i;
 		}
 		
 		for(int i = 0 ; i < n ; i++)
 			cout << card[i] << " ";
 		cout << endl;
+		
 	}
 	
 	return 0;
-} 
+}

@@ -5,29 +5,22 @@ int main(){
 	int h, w, n;
 	cin >> h >> w >> n;
 	int brick[n];
-	
 	for(int i = 0 ; i < n ; i++)
 		cin >> brick[i];
 	
-	int origin = w;
-	
+	int pos = 0, complete = 0;
 	for(int i = 0 ; i < n ; i++){
-		if(w-brick[i] > 0) w -= brick[i];
-		else if(w-brick[i] == 0){
-			w = origin;
-			h--;
-		}
+		if(pos+brick[i] > w) break;
+		else if(pos+brick[i] < w) pos += brick[i];
 		else{
-			cout << "NO" << '\n';
-			return 0;
+			pos = 0;
+			complete++;
 		}
-		
-		if(h == 0){
-			cout << "YES" << '\n';
-			return 0;
-		}
+		if(complete == h) break;
 	}
 	
-	cout << "NO" << '\n';
+	if(complete == h) cout << "YES" << endl;
+	else cout << "NO" << endl;
+	
 	return 0;
 }
