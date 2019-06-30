@@ -27,10 +27,19 @@ void enqueue(int id){
 }
 
 void dequeue(){
+	if(group_q.empty()) return; 
+	
 	int group = group_q.front();
 	cout << id_q[group].front() << '\n';
+	
+	id_in_q[id_q[group].front()] = 0;
 	id_q[group].pop_front();
-	if(id_q[group].empty()) group_q.pop();
+	
+	if(id_q[group].empty()){
+		g_in_q[group] = 0;
+		group_q.pop();
+	}
+	
 	return;
 }
 
@@ -46,6 +55,9 @@ int main(){
 		id_to_g.clear();
 		memset(g_in_q, 0, sizeof(g_in_q));
 		memset(id_in_q, 0, sizeof(id_in_q));
+		while(!group_q.empty()) group_q.pop();
+		for(int i = 0 ; i < 1005 ; i++)
+			id_q[i].clear();
 		
 		for(int i = 0 ; i < t ; i++){
 			cin >> g[i];
@@ -56,6 +68,7 @@ int main(){
 		}
 		int id;
 		string cmd;
+		
 		cout << "Scenario #" << count++ << '\n';
 		while(cin >> cmd){
 			if(cmd == "STOP") break;
@@ -65,6 +78,7 @@ int main(){
 			}
 			if(cmd == "DEQUEUE") dequeue();
 		}
+		cout << endl;
 	}
 	return 0;
 }
