@@ -13,8 +13,12 @@ void setstack(){
 int main(){
     #define name ""
     #ifndef FOX
+    // fopen to read/write
     freopen(name".in","r",stdin);
     freopen(name".out","w",stdout);
+    // ifstream to read/write
+    ifstream cin(name".in");
+    ofstream cout(name".out");
     #endif
     static_assert(strlen(name));
     ios::sync_with_stdio(0);
