@@ -2,7 +2,6 @@ int mex(set S) {
   // find the min number >= 0 that not in the S
   // e.g. S = {0, 1, 3, 4} mex(S) = 2
 }
-
 state = []
 int SG(A) {
   if (A not in state) {
@@ -13,43 +12,33 @@ int SG(A) {
   return state[A]
 }
 
-// ~~~~~~~~~~~~~~~~~
-
-#include <bits/stdc++.h>
-using namespace std;
-
+/* f[N]: N種可以改變當前狀態的方式 
 #define MAX 110
-int sg[MAX], vis[MAX];
+int SG[MAX], State[MAX], f[N];
 
-int main() {
-    sg[1] = 0;
+能開 array 就記所有 SG, ans = SG[x]^SG[y]...^SG[z]
+void get_SG() {
+    SG[1] = 0;
     for (int i = 2; i <= 30; i++) {
-        memset(vis, 0, sizeof(vis));
-        for (int j = 1; j * 2 <= i; j++) vis[sg[i - j]] = 1;
-        for (int j = 0; ; j++) if (!vis[j]) {
-            sg[i] = j;
-            break;
-        }
-        cout << sg[i] << ' ';
-    }
-    return 0;
-}
- 
-long long SG(long long x) {
-    return x % 2 == 0 ? x / 2: SG(x / 2);
+        memset(State, 0, sizeof(State));
+        // 標記後繼可能的狀態的SG值 
+        for (int j = 0; f[j] <= i && j <= N; j++) State[ SG[i-f[j]] ] = 1;
+        // 查詢當前後繼狀態中，SG值中最小的非零值 
+        for (int j = 0; ; j++) if (!State[j]) SG[i] = j, break;
+        cout << SG[i] << ' ';
+    } 
 }
 
-int main() {
+開不了array記所有 SG 就找規律, 例如: 
+long long SG(long long x) { return x % 2 == 0 ? x / 2: SG(x / 2); }
+
+int main(){
     int t; cin >> t;
     while (t--) {
-        int n; 
+        int n;
         long long a, v = 0;
         cin >> n;
-        for (int i = 0; i < n; i++) {
-            cin >> a;
-            v ^= SG(a);
-        }
+        for (int i = 0; i < n; i++) cin >> a, v ^= SG(a);
         cout << (v ? "YES" : "NO") << '\n';
     }
-    return 0;
-}
+    return 0; } */
