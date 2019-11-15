@@ -4,3 +4,7 @@ pair<int,int> extgcd(int a, int b){
     pair<int,int> p = extgcd(b,a-k*b);
     return { p.second, p.first - k*p.second };
 }
+/* 求出ax+by=c的 x, y為整數解
+	轉正整數: g is gcd(a,b)
+	x = (x+b/g)*(c/g), x = (x%b/g+b/g)%b/g;
+	y = (c-a*x)/b; */

@@ -12,7 +12,7 @@ void setstack(){
 
 int main(){
     #define name ""
-    #ifndef FOX
+    #ifndef BANANA
     // fopen to read/write
     freopen(name".in","r",stdin);
     freopen(name".out","w",stdout);
