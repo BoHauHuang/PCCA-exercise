@@ -16,6 +16,8 @@ int SG(A) {
   return state[A]
 }
 
+// ~~~~~~~~~~~~~~~~~
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -35,8 +37,7 @@ int main() {
     }
     return 0;
 }
-
-// 
+ 
 long long SG(long long x) {
     return x % 2 == 0 ? x / 2: SG(x / 2);
 }
