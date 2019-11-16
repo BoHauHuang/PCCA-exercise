@@ -5,9 +5,9 @@
 #### Formation time: July, 2019
 
 # Members
-### Po-Hao Huang
-### Kai-Chieh Chan
-### Tsung-Fang Chen
+#### Po-Hao Huang
+#### Kai-Chieh Chan
+#### Tsung-Fang Chen
 
 # About this repository
-Competition programming exercise, code backup, codebook....etc
+##### Competition programming exercise, code backup, codebook....etc
