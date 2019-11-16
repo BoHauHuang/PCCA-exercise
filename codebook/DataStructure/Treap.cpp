@@ -1,6 +1,3 @@
-#define int long long
-#define MAX 100010
-
 struct Node {
 	Node *ls, *rs;
 	int val, sum, siz;
