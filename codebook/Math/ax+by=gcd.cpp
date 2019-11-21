@@ -4,7 +4,7 @@ pair<int,int> extgcd(int a, int b){
     pair<int,int> p = extgcd(b,a-k*b);
     return { p.second, p.first - k*p.second };
 }
-/* ¨D¥Xax+by=cªº x, y¬°¾ã¼Æ¸Ñ
-	Âà¥¿¾ã¼Æ: g is gcd(a,b)
+/*  åŽŸå§‹é¡Œç›®æ±‚ ax+by=c çš„x, yæ•´æ•¸è§£
+	æ­£æ•´æ•¸è§£: (g is gcd(a,b))
 	x = (x+b/g)*(c/g), x = (x%b/g+b/g)%b/g;
 	y = (c-a*x)/b; */
