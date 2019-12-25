@@ -1,11 +1,7 @@
 const int MAXN = 400 + 10;
 const long long INF64 = 0x3f3f3f3f3f3f3f3fll;
-int nl, nr;
-int pre[MAXN];
-long long slack[MAXN];
-long long W[MAXN][MAXN];
-long long lx[MAXN], ly[MAXN];
-int mx[MAXN], my[MAXN];
+int nl, nr, pre[MAXN], mx[MAXN], my[MAXN];
+long long slack[MAXN], W[MAXN][MAXN], lx[MAXN], ly[MAXN];
 bool vx[MAXN], vy[MAXN];
 void augment(int u) {
     if(!u) return;
