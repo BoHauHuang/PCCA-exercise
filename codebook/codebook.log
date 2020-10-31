@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7200 64-bit) (preloaded format=xelatex 2019.11.7)  7 NOV 2019 23:04
+This is XeTeX, Version 3.14159265-2.6-0.999992 (MiKTeX 20.10) (preloaded format=xelatex 2020.10.31)  31 OCT 2020 13:50
 entering extended mode
 **./codebook.tex
 (codebook.tex
@@ -1052,8 +1052,8 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 (xeCJK)                Try to use `\setCJKmonofont[...]{...}' to define it.
 
 (Basic/vimrc/.vimrc)) (Basic/T.cpp)
-File: logo.png Graphic file (type bmp)
-<logo.png>
+File: logo.jpg Graphic file (type bmp)
+<logo.jpg>
 
 
 Package Fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -1063,60 +1063,57 @@ This may cause the page layout to be inconsistent, however.
 
 [1
 
-] (Graph/Flow/dinic.cpp) (Graph/Flow/Gomory_Hu.cpp [2])
-(Graph/Flow/Min_Cost_Max_Flow.cpp) (Graph/Flow/SW-mincut.cpp)
-(Graph/Matching/Hungarian.cpp) (Graph/Matching/Kuhn_Munkres.cpp [3]
+] (Graph/Flow/dinic.cpp
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2])
+(Graph/Flow/Gomory_Hu.cpp) (Graph/Flow/Min_Cost_Max_Flow.cpp
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3])
+(Graph/Flow/SW-mincut.cpp) (Graph/Matching/Hungarian.cpp)
+(Graph/Matching/Kuhn_Munkres.cpp [4]) (Graph/Matching/Matching.txt
+
+LaTeX Font Warning: Font shape `TU/NotoSansCJKTC(0)/m/it' undefined
+(Font)              using `TU/NotoSansCJKTC(0)/m/n' instead on input line 8.
+
+) (Graph/Matching/Maximum_General_Matching.cpp)
+(Graph/Matching/Minimum_General_Weighted_Matching.cpp [5]) (Graph/.Graph.tex)
+(Graph/BCC_edge.cpp) (Graph/Dijkstra.cpp) (Graph/Domination.txt [6])
+(Graph/LCA.cpp) (Graph/MaximumClique.cpp) (Graph/Min_mean_cycle.cpp [7])
+(Graph/SSSP-related-concepts.txt) (Graph/Tarjan.cpp) (Graph/TwoSAT_2.cpp)
+(Graph/planar.cpp [8]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-(Graph/Matching/Matching.txt) (Graph/Matching/Maximum_General_Matching.cpp
-[4]) (Graph/Matching/Minimum_General_Weighted_Matching.cpp) (Graph/.Graph.tex)
-(Graph/BCC_edge.cpp [5]) (Graph/Dijkstra.cpp) (Graph/Domination.txt)
-(Graph/MaximumClique.cpp) (Graph/Min_mean_cycle.cpp [6])
-(Graph/SSSP-related-concepts.txt) (Graph/Tarjan.cpp) (Graph/TwoSAT.cpp)
-(Graph/planar.cpp [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9])
-(Math/.Math.tex) (Math/ax+by=gcd.cpp) (Math/FFT.cpp) (Math/NTT.cpp
-
-LaTeX Font Warning: Font shape `TU/NotoSansCJKTC(0)/m/it' undefined
-(Font)              using `TU/NotoSansCJKTC(0)/m/n' instead on input line 57.
-
-) (Math/GaussElimination.cpp [10]) (Math/inverse.cpp) (Math/Miller-Rabin.cpp)
-(Math/Mobius.cpp) (Math/pollardRho.cpp) (Math/Sprague-Grundy.cpp [11])
+(Math/.Math.tex) (Math/ax+by=gcd.cpp) (Math/FFT.cpp [10]) (Math/NTT.cpp)
+(Math/GaussElimination.cpp) [11] (Math/inverse.cpp) (Math/Miller-Rabin.cpp)
+(Math/Mobius.cpp) (Math/pollardRho.cpp) (Math/Sprague-Grundy.cpp) [12]
 (Math/theorem.cpp) (Geometry/2Dpoint.cpp) (Geometry/circumcentre.cpp)
-(Geometry/ConvexHull.cpp [12]) (Geometry/3D_ConvexHull.cpp)
+(Geometry/ConvexHull.cpp) (Geometry/3D_ConvexHull.cpp [13])
 (Geometry/half_plane_intersection.cpp) (Geometry/Intersection_of_two_circle.cpp
 ) (Geometry/Intersection_of_two_lines.cpp) (Geometry/Smallest_Circle.cpp
-[13]) (String/AC.cpp) (String/KMP.h) (String/PalindromicTree.cpp [14])
+[14]) (String/AC.cpp) (String/KMP.h) (String/PalindromicTree.cpp [15])
 (String/SAM.cpp) (String/smallest_rotation.cpp) (String/suffix_array.cpp)
-(String/Z-value.cpp [15]) (String/BWT.cpp) (DataStructure/2D_RangeTree.cpp)
-(DataStructure/ext_heap.cpp) (DataStructure/KDTree.cpp [16])
+(String/Z-value.cpp) (String/BWT.cpp [16]) (DataStructure/2D_RangeTree.cpp)
+(DataStructure/ext_heap.cpp) (DataStructure/KDTree.cpp [17])
 (DataStructure/link_cut_tree.cpp
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17])
-(DataStructure/Treap_Lin.cpp
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [18])
-(Other/count_spanning_tree.cpp) (Other/CppRandom.cpp) (Other/DigitCounting.cpp)
-(Other/DP-optimization.txt [19]) (Other/Dp1D1D.cpp) (Other/ManhattanMST.cpp
-[20]) (Other/Marriage.cpp
+(DataStructure/Treap.cpp) (Other/count_spanning_tree.cpp [19])
+(Other/CppRandom.cpp) (Other/DigitCounting.cpp) (Other/DP-optimization.txt)
+(Other/Dp1D1D.cpp [20]) (Other/ManhattanMST.cpp
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21])
-(Other/Mo_algorithm.cpp) (Other/Parser.cpp) (Other/java.java [22])
+(Other/Marriage.cpp) (Other/Mo_algorithm.cpp) (Other/Parser.cpp [22])
 (Other/python.py) [23])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1129,10 +1126,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 30778 strings out of 427242
- 623299 string characters out of 3141500
- 1418640 words of memory out of 3000000
- 34740 multiletter control sequences out of 15000+200000
+ 30605 strings out of 427267
+ 622317 string characters out of 3142349
+ 1383439 words of memory out of 3000000
+ 34553 multiletter control sequences out of 15000+200000
  533893 words of font info for 63 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,12n,70p,402b,1614s stack positions out of 5000i,500n,10000p,200000b,50000s

@@ -74,12 +74,16 @@ shuffle(list)
 Uniform(L,R) # float from [L,R]
 
 # Decimal
-from fractions import Fraction
 from decimal import Decimal, getcontext
 getcontext().prec = 250 # set precision
 
 itwo = Decimal(0.5)
 two = Decimal(2)
+
+# Fraction
+from fractions import Fraction
+output = Fraction(str(REAL)).limit_denominator(B)
+print(str(output)) # a/b, b <= B
 
 N = 200
 def angle(cosT):
@@ -101,3 +105,6 @@ w.write('123\n')
 import sys
 sys.stdin = open('filename.in')
 sys.stdout = open('filename.out', 'w')
+
+# Combination
+math.comb(n, k) # n!/(k!*(n-k)!)
